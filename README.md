@@ -40,8 +40,8 @@ A beautiful glassmorphism movie tracker powered by the Trakt API. Discover trend
 
 1. Clone the repository
 ```bash
-git clone <repository-url>
-cd shimmer-show-tracer-main
+git clone https://github.com/wayne-inc/lumen-movie-tracker.git
+cd lumen-movie-tracker
 ```
 
 2. Install dependencies
