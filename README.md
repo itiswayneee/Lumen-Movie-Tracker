@@ -2,8 +2,6 @@
 
 A beautiful glassmorphism movie tracker powered by the Trakt API. Discover trending and popular movies, manage your watchlist, track watched history, and get personalized recommendations.
 
-![Lumen Screenshot](public/opengraph-image-p98pqg.png) <!-- You may want to add an actual screenshot -->
-
 ## Features
 
 - 🎬 **Trending Movies**: See what the world is watching right now
@@ -61,13 +59,7 @@ bun install
    - Set the redirect URI to `http://localhost:5173/callback` (for development)
    - Note your Client ID and Client Secret
 
-4. Create a `.env` file in the root directory:
-```env
-VITE_TRAKT_CLIENT_ID=your_client_id_here
-VITE_TRAKT_CLIENT_SECRET=your_client_secret_here
-```
-
-5. Start the development server
+4. Start the development server
 ```bash
 # Using npm
 npm run dev
@@ -76,7 +68,7 @@ npm run dev
 bun run dev
 ```
 
-6. Open your browser to `http://localhost:5173`
+5. Open your browser to `http://localhost:5173`
 
 ## Building for Production
 
@@ -91,19 +83,6 @@ npm run build:dev
 npm run preview
 ```
 
-## Project Structure
-
-```
-src/
-├── components/     # Reusable UI components
-├── hooks/          # Custom React hooks
-├── lib/            # Trakt API integration and utilities
-├── pages/          # Page components (Index, Callback, NotFound)
-├── App.tsx         # Main app component with routing
-├── main.tsx        # Entry point
-└── index.css       # Global styles
-```
-
 ## API Integration
 
 This project uses the [Trakt API](https://trakt.docs.apiary.io/) to fetch movie data. The API integration is handled in `src/lib/trakt.ts` and includes:
@@ -116,13 +95,6 @@ This project uses the [Trakt API](https://trakt.docs.apiary.io/) to fetch movie 
 - Watched history tracking
 - Personalized recommendations
 
-## Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `VITE_TRAKT_CLIENT_ID` | Your Trakt application Client ID | Yes |
-| `VITE_TRAKT_CLIENT_SECRET` | Your Trakt application Client Secret | Yes |
-
 ## Available Scripts
 
 - `npm run dev` - Start development server
@@ -132,14 +104,6 @@ This project uses the [Trakt API](https://trakt.docs.apiary.io/) to fetch movie 
 - `npm run lint` - Run ESLint
 - `npm run test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
