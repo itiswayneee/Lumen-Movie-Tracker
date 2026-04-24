@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  :root {
+    /* Dark cinematic base */
+    --background: 230 35% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 230 30% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 35% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Neon cyan primary */
+    --primary: 186 100% 60%;
+    --primary-foreground: 230 35% 5%;
+    --primary-glow: 186 100% 70%;
+
+    /* Neon magenta accent */
+    --accent: 320 100% 65%;
+    --accent-foreground: 230 35% 5%;
+    --accent-glow: 320 100% 75%;
+
+    --secondary: 230 25% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 230 20% 12%;
+    --muted-foreground: 220 15% 65%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 30% 18%;
+    --input: 230 30% 14%;
+    --ring: 186 100% 60%;
+
+    --radius: 1rem;
+
+    /* Glass surfaces */
+    --glass-bg: 230 35% 10% / 0.5;
+    --glass-border: 210 40% 98% / 0.08;
+    --glass-highlight: 210 40% 98% / 0.12;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(ellipse at top, hsl(186 100% 50% / 0.25), transparent 50%),
+                     radial-gradient(ellipse at bottom right, hsl(320 100% 50% / 0.2), transparent 50%),
+                     linear-gradient(180deg, hsl(230 35% 5%), hsl(230 40% 3%));
+    --gradient-neon: linear-gradient(135deg, hsl(186 100% 60%), hsl(320 100% 65%));
+    --gradient-card: linear-gradient(135deg, hsl(230 35% 12% / 0.6), hsl(230 35% 8% / 0.4));
+
+    /* Shadows / glows */
+    --shadow-neon: 0 0 30px hsl(186 100% 60% / 0.4), 0 0 60px hsl(186 100% 60% / 0.2);
+    --shadow-magenta: 0 0 30px hsl(320 100% 65% / 0.4), 0 0 60px hsl(320 100% 65% / 0.2);
+    --shadow-glass: 0 8px 32px 0 hsl(230 50% 2% / 0.5);
+    --shadow-elevated: 0 20px 60px -10px hsl(230 50% 2% / 0.8);
+
+    /* Motion */
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-base: all 0.3s var(--ease-smooth);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--gradient-hero);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass), inset 0 1px 0 0 hsl(var(--glass-highlight));
+  }
+
+  .glass-strong {
+    background: hsl(230 35% 8% / 0.75);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-elevated), inset 0 1px 0 0 hsl(var(--glass-highlight));
+  }
+
+  .text-gradient-neon {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-cyan { box-shadow: var(--shadow-neon); }
+  .glow-magenta { box-shadow: var(--shadow-magenta); }
+
+  .grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
